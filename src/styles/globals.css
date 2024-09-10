@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .nav-link {
+        @apply transition-all hover:text-text-primary-light-grey;
+    }
+
+    .button-primary {
+        @apply px-16 py-4 rounded-md border-bg-stroke-grey border-2 font-bold transition-all hover:scale-[1.025] active:scale-[.975];
+    }
+
+    .button-secondary {
+        @apply font-medium bg-blue rounded-md p-3 transition-all hover:scale-[1.01] active:scale-[.99];
+    }
+
+    .search-bar {
+        @apply placeholder:text-text-secondary-grey bg-bg-stroke-grey rounded-full p-5 px-6 w-full max-w-[52rem] outline-none;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    }
+
+    .overlay-container {
+        display: grid;
+        grid-template: "container";
+    }
+
+    .overlay-element {
+        grid-area: container;
+    }
+
+    .card-gradient {
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 100%);
+    }
+}
