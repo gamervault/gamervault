@@ -2,18 +2,18 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { inter } from "@/utils/fonts";
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 // Utils
 import { createClient } from "@/utils/supabase/component";
 import { LoggedInContext } from "@/utils/context/LoggedInContext";
 import { UserDataContext } from "@/utils/context/UserDataContext";
 import { jwtDecode } from "jwt-decode";
+import { createClient as createServerClient } from "@/utils/supabase/server-props";
 // Components
 import Navbar from "@/components/static/Navbar";
 import { User } from "@supabase/supabase-js";
 import Footer from "@/components/static/Footer";
-
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -22,6 +22,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState<User | null | undefined>(null);
   const [displayFooter, setDisplayFooter] = useState(false);
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  
 
   // updates the signed in/signed out locally
   useEffect(() => {
@@ -50,6 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
         router.reload();
       } else if (event === "INITIAL_SESSION") {
         initialSignin();
+        setIsInitialRender(false);
       }
     }); 
     return () => authChangeSubscription.data.subscription.unsubscribe();
@@ -60,16 +63,19 @@ export default function App({ Component, pageProps }: AppProps) {
     if (isLoggedIn && (router.pathname === "/login" || router.pathname === "/signup" || router.pathname === "/reset")) {
       router.push("/");
     } else if (!isLoggedIn && (router.pathname === "/submit" || router.pathname === "/settings" || router.pathname === "/activity")) {
-      router.push("/")
+      if (!isInitialRender) {
+        router.push("/");
+      }  
     }
 
     // Footer display
-    if (router.pathname === "/" || router.pathname.startsWith("/games") || router.pathname === "/settings") {
+    if (router.pathname === "/" || router.pathname.startsWith("/games") || router.pathname === "/settings" || router.pathname.startsWith("/activity")) {
       setDisplayFooter(true);
     } else {
       setDisplayFooter(false);
     }
-  }, [router, isLoggedIn])
+    
+  }, [router, isLoggedIn, isInitialRender])
   
 
 
