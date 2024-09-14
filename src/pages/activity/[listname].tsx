@@ -113,8 +113,8 @@ function ActivityGamesListPage(props: GamesListPageProps) {
         }
     }
 
-    const gamesCards = gamesList.map((game) => {
-        return <Card {...game} />
+    const gamesCards = gamesList.map((game, index) => {
+        return <Card key={index} {...game} />
     });
     
 

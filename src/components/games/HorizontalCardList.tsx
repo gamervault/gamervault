@@ -4,8 +4,8 @@ import { HorizontalCardListProps } from "@/utils/types";
 import Card from "./Card";
 
 function HorizontalCardList(props: HorizontalCardListProps) {
-    const gamesCards = props.gameList.map((game) => {
-        return <Card {...game} />
+    const gamesCards = props.gameList.map((game, index) => {
+        return <Card key={index} {...game} />
     });
 
     return (

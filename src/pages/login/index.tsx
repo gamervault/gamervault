@@ -139,7 +139,7 @@ function SignupPage() {
                 
                 {/* Bottom Links */}
                 <div className="text-center text-sm flex flex-col gap-1">
-                    <p>Don't have an account? <Link href="/signup" className="text-blue">Sign up here.</Link></p>
+                    <p>Don{"'"}t have an account? <Link href="/signup" className="text-blue">Sign up here.</Link></p>
                     <p>Forgot your password? <Link href="/reset" className="text-blue">Reset it here.</Link></p>
                 </div>
             </div>

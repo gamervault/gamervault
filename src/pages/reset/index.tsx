@@ -88,7 +88,7 @@ function ResetPage() {
                 
                 {/* Bottom Links */}
                 <div className="text-center text-sm flex flex-col gap-1">
-                    <p>Don't have an account? <Link href="/signup" className="text-blue">Sign up here.</Link></p>
+                    <p>Don{"'"}t have an account? <Link href="/signup" className="text-blue">Sign up here.</Link></p>
                     <p>Trying to sign in? <Link href="/login" className="text-blue">Log in here.</Link></p>
                 </div>
             </div>

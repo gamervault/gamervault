@@ -56,7 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     }); 
     return () => authChangeSubscription.data.subscription.unsubscribe();
-  }, []);
+  }, [supabase.auth, router]);
 
   // Prevents users from accessing pages based on logged in/out
   useEffect(() => {
