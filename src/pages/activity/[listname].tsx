@@ -70,10 +70,29 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             }
         }
     }
+
+    let gamesList = gamesListData;
+    
+    if (listName === "liked") {
+        gamesList = gamesListData.map((game: CardProps) => {
+            return {
+                ...game,
+                is_liked_by_user: true
+            }
+        });
+    } else if (listName === "saved") {
+        gamesList = gamesListData.map((game: CardProps) => {
+            return {
+                ...game,
+                is_saved_by_user: true
+            }
+        });
+    }
+    
     
     return {
         props: {
-            gamesList: gamesListData,
+            gamesList: gamesList,
             title: listTitle,
             function: listFunction
         }
