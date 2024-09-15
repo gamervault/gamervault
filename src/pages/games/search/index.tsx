@@ -83,7 +83,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 function SearchPage(props: SearchPageProps) {
     const gamesCards = props.gamesList.map((game, index) => {
-        return <Card key={index} {...game} />
+        return <Card key={game.game_id} {...game} />
     });
     
 
