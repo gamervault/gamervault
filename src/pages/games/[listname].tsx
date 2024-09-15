@@ -107,7 +107,10 @@ function GamesListPage(props: GamesListPageProps) {
         }
     }
 
+    console.log("___________________");
+    console.log(gamesList.length);
     const gamesCards = gamesList.map((game, index) => {
+        console.log(game.game_id);
         return <Card key={index} {...game} />
     });
     

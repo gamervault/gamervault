@@ -94,7 +94,7 @@ function SearchPage(props: SearchPageProps) {
             </Head>
 
             <SearchBar className="py-3 max-w-full"/>
-            <h1 className="text-3xl font-extrabold text-center sm:text-left line-clamp-1 text-ellipsis">{`\"{props.query}\"`}</h1>
+            <h1 className="text-3xl font-extrabold text-center sm:text-left line-clamp-1 text-ellipsis">{`\"${props.query}\"`}</h1>
 
             {/* Games Grid */}
             <div className="grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] justify-items-center sm:grid-cols-[repeat(auto-fill,minmax(12.5rem,1fr))]  gap-8">
