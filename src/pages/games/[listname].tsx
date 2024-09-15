@@ -8,6 +8,7 @@ import { useState } from "react";
 import { createClient as createBrowserClient} from "@/utils/supabase/component";
 import { useContext } from "react";
 import { UserDataContext } from "@/utils/context/UserDataContext";
+import Head from "next/head";
 
 
 type GamesListPageProps = {
@@ -113,6 +114,10 @@ function GamesListPage(props: GamesListPageProps) {
 
     return (
         <div className="flex flex-col gap-6 py-3">
+            <Head>
+                <title>{props.title} - Gamervault</title>
+            </Head>
+
             <SearchBar className="py-3 max-w-full"/>
             <h1 className="text-4xl font-extrabold text-center sm:text-left">{props.title}</h1>
 

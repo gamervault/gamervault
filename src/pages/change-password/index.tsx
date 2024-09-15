@@ -8,6 +8,7 @@ import { GetServerSidePropsContext } from "next";
 import { redirect } from "next/dist/server/api-utils";
 import { EmailOtpType } from "@supabase/supabase-js";
 import { stringOrFirstString } from "@/utils/helper";
+import Head from "next/head";
 
 type RefType = HTMLInputElement | null;
 
@@ -127,6 +128,9 @@ function ChangePasswordPage() {
 
     return (
         <div className="w-full grid place-items-center min-h-[80vh]">
+            <Head>
+                <title>Change Password - Gamervault</title>
+            </Head>
             <div className="rounded-md w-full max-w-[28rem] box-border flex flex-col p-8 border-2 border-bg-stroke-grey gap-4">
                 <h1 className="text-xl font-bold text-center">Change Password</h1>
 

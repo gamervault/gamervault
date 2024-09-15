@@ -7,6 +7,7 @@ import Image from "next/image";
 import SearchBar from "@/components/games/SearchBar";
 import Heart from "@/components/games/Heart";
 import Bookmark from "@/components/games/Bookmark";
+import Head from "next/head";
 
 type GameDetailsPageProps = {
     gameId: string,
@@ -86,6 +87,9 @@ function GameDetails(props: GameDetailsPageProps) {
 
     return (
         <div className="flex flex-col items-center">
+            <Head>
+                <title>{gameData.title} - Gamervault</title>
+            </Head>
             <SearchBar className="py-3 max-w-full"/>
             <div className="mt-6 md:p-6 w-full max-w-[70rem]">
                 <div className="flex flex-col items-center justify-between md:gap-12 md:flex-row gap-4">

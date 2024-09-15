@@ -5,6 +5,7 @@ import { GetServerSidePropsContext } from "next";
 import { createClient } from "@/utils/supabase/server-props";
 import { stringOrFirstString } from "@/utils/helper";
 import OpenAI from "openai";
+import Head from "next/head";
 
 type SearchPageProps = {
     query: string,
@@ -88,6 +89,10 @@ function SearchPage(props: SearchPageProps) {
 
     return (
         <div className="flex flex-col gap-6 py-3">
+            <Head>
+                <title>Search - Gamervault</title>
+            </Head>
+
             <SearchBar className="py-3 max-w-full"/>
             <h1 className="text-3xl font-extrabold text-center sm:text-left line-clamp-1 text-ellipsis">{`\"{props.query}\"`}</h1>
 

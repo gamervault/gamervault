@@ -4,6 +4,7 @@ import { inter } from "@/utils/fonts";
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import { GoogleAnalytics } from '@next/third-parties/google';
 // Utils
 import { createClient } from "@/utils/supabase/component";
 import { LoggedInContext } from "@/utils/context/LoggedInContext";
@@ -81,6 +82,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div className={`${inter.className} text-off-white min-h-[100dvh] flex flex-col`}>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!} />
+
       <Head>
         <title>Gamervault</title>
       </Head>

@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { UserDataContext } from "@/utils/context/UserDataContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Head from "next/head";
 
 
 function SettingsPage() {
@@ -46,6 +47,10 @@ function SettingsPage() {
     
     return (
         <div className="pt-4 flex flex-col gap-6">
+            <Head>
+                <title>Settings - Gamervault</title>
+            </Head>
+
             <ToastContainer />
             <h1 className="text-4xl font-bold">Settings</h1>
 
